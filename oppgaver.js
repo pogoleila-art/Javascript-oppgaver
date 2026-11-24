@@ -198,10 +198,11 @@ console.log(sum)
 // hvor mange slag som trengs før bossHp er 0 eller mindre.
 // Forventet: 7 slag
 let slag = 0;
-let bossHp = 100;
-while (bossHp >0)
-    slag = +1
-    bossHP -15;
+let bossHp = 100; 
+while (bossHp >0) {
+    slag++;
+    bossHp -= 15;
+}
 console.log(slag)
 
     
@@ -210,6 +211,17 @@ console.log(slag)
 // Delelig med 5: "Lys". Delelig med både 3 og 5: "Nordlys".
 // Tips: tall % 3 === 0 betyr delelig med 3.
 // Forventet: 1, 2, Nord, 4, Lys, Nord, 7, 8, Nord, Lys, 11, Nord, 13, 14, Nordlys
+for (let tall = 1; tall <= 15; tall++) {
+if (tall % 3 === 0 && tall % 5 === 0 )
+    console.log("Nordlys")
+ else if (tall % 5 === 0)
+    console.log("Lys")
+ else if (tall % 3 === 0)
+    console.log("Nord")
+ else {
+    console.log(tall);
+}
+}
 
 
 // ---------------- ARRAYS ----------------
@@ -227,25 +239,37 @@ console.log(slag)
 // Skriv ut den første byen og hvor mange byer det er.
 // Forventet: Tromsø
 //            5
-
+const byer = ["Tromsø", "Bodø", "Alta", "Harstad", "Narvik"]
+console.log(byer[0], byer.length)
 
 // Oppgave 21 (grunnleggende)
 // Legg til "Hammerfest" med push, og skriv ut den siste byen og det nye antallet.
 // Tips: siste element er byer[byer.length - 1]
 // Forventet: Hammerfest
 //            6
-
+const byerr = ["Tromsø", "Bodø", "Alta", "Harstad", "Narvik"]
+byerr.push("Hammerfest")
+console.log(byerr[byerr.length -1], byerr.length)
 
 // Oppgave 22 (middels)
 // Skriv ut alle byene med en for-løkke.
 // Forventet: Tromsø, Bodø, Alta, Harstad, Narvik, Hammerfest (én per linje)
-
+const byerrr = ["Tromsø", "Bodø", "Alta", "Harstad", "Narvik"]
+byerrr.push("Hammerfest")
+for (let i = 0; i < byerrr.length; i++) { console.log(byerrr[i]); }
 
 // Oppgave 23 (middels)
 // const temperaturer = [-4, -6, -2, 1, -8, -11, -3];
 // Tell hvor mange dager det var kaldere enn -5. Bruk for og if.
 // Forventet: 3
-
+const temperaturer = [-4, -6, -2, 1, -8, -11, -3];
+let antall = 0
+for (let i = 0; i < temperaturer.length; i++) {
+    if (temperaturer[i] < -5) {
+        antall++;
+    }
+}
+console.log(antall)
 
 // Oppgave 24 (avansert)
 // const inventory = ["sverd", "drikk", "skjold", "drikk", "fiskestang", "drikk"];
@@ -253,9 +277,26 @@ console.log(slag)
 // b) Lag en ny array uten "drikk" ved å bruke en løkke og push.
 // Forventet: 3
 //            [ 'sverd', 'skjold', 'fiskestang' ]
+const inventory = ["sverd", "drikk", "skjold", "drikk", "fiskestang", "drikk"];
+let hvormye = 0;
 
+for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i] === "drikk") {
+        hvormye++;
+    }
+ }
+console.log(hvormye);
 
+let Nyinv = [];
+for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i] !== "drikk") {
+        Nyinv.push(inventory[i]);
+    }
+}
+console.log(Nyinv)
 // Oppgave 25 (avansert)
 // inventory er const, men push virker likevel. Hvorfor?
 // Skriv svaret i oppgavearket.
 // Forventet: ingenting i konsollen
+
+//magic???
